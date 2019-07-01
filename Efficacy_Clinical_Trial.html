@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/Efficacy_Clinical_Trial.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, maximum-scale=1">
+<title>Veeva Test</title>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
+<script src="https://unpkg.com/dropbox/dist/DropboxTeam-sdk.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="js/veeva-library-3.0.js"> </script>
+	<script src="js/Efficacy_Clinical_Trial_Email.js"></script>
+	<script src="js/Efficacy_Clinical_Trial.js"></script>
+</head>
+
+<body>
+
+	<div id="printContent" class="noPrint">
+		<p>Wassup we here</p>
+	</div>
+
+		<div id="hidden"></div>
+	<div id="pageMask" class="normalPage" onclick="closeSideButtons()" style="display:none"></div>
+	<div class="sideButton normalClass" id="communicationSupport">
+		<div class="imageDiv" id="patientSupportButton"  onclick="communication(this)"><img width="35" height="35" src="Icons/CommunicationsTab.png"></div>
+		<div class="imageDiv" onclick="getTemplateDocId()"><div class="imageBorder"><img src="Icons/Email.png"></div><span class="sidebarText">Email</span></div>
+		<div class="imageDiv"><div class="imageBorder"><img src="Icons/Mail.png"></div><span class="sidebarText">Mail</span></div>
+		<div class="imageDiv" onclick="toDropbox()"><div class="imageBorder"><img src="Icons/Printer.png"></div><span class="sidebarText">Print</span></div>
+	</div>
+	<div class="sideButton normalClass" id="patientSupport" >
+		<div class="imageDiv" onclick="patient(this)" id="patientSupportButton"><img width="35" height="35" src="Icons/SupportTab.png"></div>
+		<div class="imageDiv"><div class="imageBorder"><img src="Icons/PatientSupport.png"></div><span class="sidebarText">Patient Support</span></div>
+		<div class="imageDiv"><div class="imageBorder"><img src="Icons/FinancialAssistance.png"></div><span class="sidebarText">Financial Assistance</span></div>
+		<div class="imageDiv"><div class="imageBorder"><img src="Icons/DosingInstructions.png"></div><span class="sidebarText">Dosing Instructions</span></div>
+	</div>
+	<div id="popupBox">
+		<div id="popupTitle">Milliman Co-Pay Savings Card<br>Pay As Little As $10</div>
+		<div id="popupBody"><div id="popupBodyText">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</div><div id="popupBodyImageDiv"><img id="popupBodyImage" src="Icons/CommunicationsTab.png"></div></div>
+		<div id="popupFootnote">Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop Bleep bloop</div>
+	</div>
+	<div id="closeButton" onclick="closePopup()"><img id="closeImage" src="./Icons/escapeButton.png"></div>
+
+
+	<div id="top" style="width:100%;height:6%">
+	<img onclick = "gotoHome();" id="Milliman" src="Icons/MillimanLogoWhite.png" alt="Logo" align="right">
+	<p id="title">Efficacy <span id="subtitle">| Clinical Trial</span></p>
+
+	</div>
+
+
+<div id="graphDiv">
+	<h2 id="graphTitle">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h2>
+	<div id="graphAndInfo">
+		<div id="buttonAndBackground"></div>
+		<button id="TenMonthButton" onclick="displayRestOfGraph()">After 10 months</button>
+		<img id="graphImage" src="Icons/Graph.png">
+		<div id="graphInfo">
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br><br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+			Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum <br>
+		</div>
+	</div>
+</div>
+
+
+<div id="bottom-head">
+	<div id="ISI"><span id="ISITitle">Important Safety Information</span><br>
+		<div id="ISIMinusTitle" onscroll="moveScrollbar()"><span id="Contraindictions" class="ISISubtitle">Contraindications</span><br>Some people have had new or worse mental health problems, such as changes in behavior or thinking, aggression, hostility, agitation, depressed mood, or suicidal thoughts or actions while taking or after stopping MILLIMAN. These symptoms happened more often in people who had a history of mental health problems. Stop taking MILLIMAN and call your healthcare provider right away if you, your family, or caregiver notice any of these symptoms. Before starting MILLIMAN, tell your healthcare provider if you ever had depression or other mental health problems.<br><br><span class="ISISubtitle" id="warningsAndPrecautions">Warnings and Precautions</span><br> New or worse heart or blood vessel problems can happen with MILLIMAN. Patients should tell their healthcare provider if they have heart or blood vessel problems or experience any symptoms during treatment. Patients should get emergency medical help right away if they have symptoms of a heart attack or stroke.
+		</div></div>
+
+		<div id="scroll-wrapper">
+			<div id="scroll-track"></div>
+			<div id="scroll-btn" draggable="true"></div>
+		</div>
+
+		<div id="scrollFiller"></div>
+
+	<div id="popups">
+		  <button id="SSIButton" class="popUpButton" onclick="openPopup(this.id)">ISI</button>
+			<button id="PIButton" onclick="openPopup(this.id)" class="popUpButton">PI</button>
+			<button id="MDAButton" onclick="openPopup(this.id)" class="popUpButton">MDA</button>
+			<button id="REFButton" onclick="openPopup(this.id)" class="popUpButton">REF</button>
+	</div>
+
+	<div class="buttonLinks">
+			<button class="buttonLink" onclick="gotoCase()">Case Study</button>
+			<button class="buttonLink" onclick="gotoSafety()">Safety</button>
+			<button class="buttonLink" onclick="gotoEfficacy()">Efficacy</button>
+			<button class="buttonLink" onclick="gotoAccess()">Access</button>
+			<!-- <button class="buttonLink disabled" disabled>Dosing</button> -->
+
+		</div>
+		<!-- <div class="buttonLinks">
+			 <button class="buttonLink" href="#" onclick="gotoEfficacy()">Efficacy</button>
+				<button class="buttonLink" onclick="gotoAccess()">Access</button>
+				 <button class="buttonLink disabled" disabled>Patient Support</button>
+		</div> -->
+
+</div>
+
+<script>
+//adds listener for when there is a press on the scrollbar button
+document.getElementById("scroll-btn").addEventListener("touchstart", touchStartFcn, {passive: true});
+
+//////////////////////////////////////////////  Function to move the ISI text when the scrollbar is moved ///////////////////////////////////////////////////////////////////////////////
+var mouseMoveFcn = function (e) {
+	//gets the dimensions of the scroll bar to help limit movement of the scrollbar button
+	var rect = document.getElementById("scroll-track").getBoundingClientRect();
+	//topLimit = height of the top of the scrollbar
+	var topLimit = rect.top;
+	var buttonHeight = document.getElementById("scroll-btn").clientHeight;
+	var scrollbarHeight = document.getElementById("scroll-track").offsetHeight;
+	//scrollbarWhitespace = height of scrollbar - height of button
+	var scrollbarWhitespace = scrollbarHeight - buttonHeight;
+	//lowLimit = bottom of scrollbar = topLimit + scrollbarWhitespace (height used is top-down)
+	var lowLimit = topLimit + scrollbarWhitespace;
+	var touchPos = e.touches[0].pageY;
+	//limits the valid range of touch inputs to heights within the scrollbar
+	if(touchPos < topLimit){
+		touchPos = topLimit;
+	}
+	else if(touchPos > lowLimit){
+		touchPos = lowLimit;
+	}
+	//touchPct = location of touch as a percentage of the distance down the scrollbar the touch is
+	var touchPct = (touchPos - topLimit) / (scrollbarWhitespace);
+
+	var textHeight = document.getElementById("ISIMinusTitle").scrollHeight;
+	var windowHeight = document.getElementById("ISIMinusTitle").clientHeight;
+	var scrollSpace = textHeight - windowHeight;
+  //sets the ISI text scroll location to the same percentage as touchPct
+	document.getElementById("ISIMinusTitle").scrollTop = scrollSpace * touchPct;
+	document.getElementById("scroll-btn").style.top = touchPos;
+
+}
+
+//after a touch is initated on the scrollbar button, adds listeners for touch movement and ending
+function touchStartFcn() {
+	document.addEventListener("touchend", touchendFcn);
+	document.addEventListener("touchmove", mouseMoveFcn);
+}
+
+//when the touch has ended the listeners for movement and ending are removed (ensures that only touches on the scrollbar button have an effect)
+function touchendFcn() {
+	document.removeEventListener("touchmove",mouseMoveFcn);
+	document.removeEventListener("touchend", touchendFcn);
+}
+
+</script>
+
+</body>
+
+</html>
